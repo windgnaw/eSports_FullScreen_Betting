@@ -8,256 +8,325 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-wind.css">
     <script src="https://kit.fontawesome.com/aceb6150b9.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="main.js"></script>
+    <script type="text/javascript">
+        function doShowHideBettingControl() {
+          var groupBettingControl = document.getElementById("groupBettingControl");
+          if (groupBettingControl.style.display == 'none') groupBettingControl.style.display = '';
+          else groupBettingControl.style.display = 'none';
+    
+          event.preventDefault()
+        };
+    
+        function doChangeStream() {
+          document.getElementById("iframe1").src = document.getElementById("selectStream").value;
+    
+          event.preventDefault()
+        };
+    
+        function doBetType(bt) {
+          alert(bt);
+    
+          event.preventDefault()
+        }
+    
+        function doFullscreen() {
+          if (document.fullscreenElement == null) {
+    
+            var elem = document.getElementById("divFullscreen");
+            if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+              elem.msRequestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+              elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+              elem.webkitRequestFullscreen();
+            }
+    
+    
+            document.getElementById("groupTapArea").className += " fc";
+            document.getElementById("groupBettingControl").className += " fc";
+    
+            let btns = document.getElementsByClassName("btn_bettype");
+            for (let i = 0; i < btns.length; i++) {
+              btns[i].className += " fc";
+              console.log(btns.className);
+            }
+    
+    
+          } else {
+    
+            document.exitFullscreen();
+    
+            document.getElementById("groupTapArea").className = document.getElementById("groupTapArea").className.replace(
+              / fc/g, "");
+            document.getElementById("groupBettingControl").className = document.getElementById("groupBettingControl")
+              .className.replace(/ fc/g, "");
+    
+            let btns = document.getElementsByClassName("btn_bettype");
+            for (let i = 0; i < btns.length; i++) {
+              btns[i].className = btns[i].className.replace(/ fc/g, "");
+            }
+          }
+    
+    
+          event.preventDefault()
+        }
+    </script>
 </head>
 
 <body>
-    <iframe src="https://liveshare.huya.com/iframe/kplgt" frameborder="0"></iframe>
-    <div class="screen">
-        <div class="control">
-            <div class="title">
-                <i class="icon"><img src="images/chevron-down.svg" alt=""></i>
-            </div>
-            <!-- popup -->
-            <div class="popup popup1">
-                <div class="popup-block">
-                    <div class="confirm-word">Bet 10 to win 12</div>
-                    <div class="button-block">
-                        <div class="button cancel">Cancel</div>
-                        <div class="button deal deal1">Deal</div>
+    <button class="fullscreen-btn" id="btnFullscreen" onclick="doFullscreen()" ontouchend="doFullscreen()">Full Screen</button>
+    <div id="divFullscreen">
+        <iframe src="https://liveshare.huya.com/iframe/kplgt" frameborder="0"></iframe>
+        <div class="screen">
+            <div class="control">
+                <div class="title">
+                    <i class="icon"><img src="images/chevron-down.svg" alt=""></i>
+                </div>
+                <!-- popup -->
+                <div class="popup popup1">
+                    <div class="popup-block">
+                        <div class="confirm-word">Bet 10 to win 12</div>
+                        <div class="button-block">
+                            <div class="button cancel">Cancel</div>
+                            <div class="button deal deal1">Deal</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="popup popup2">
-                <div class="popup-block">
-                    <div class="confirm-word">Bet 10 to win 30</div>
-                    <div class="button-block">
-                        <div class="button cancel">Cancel</div>
-                        <div class="button deal deal2">Deal</div>
+                <div class="popup popup2">
+                    <div class="popup-block">
+                        <div class="confirm-word">Bet 10 to win 30</div>
+                        <div class="button-block">
+                            <div class="button cancel">Cancel</div>
+                            <div class="button deal deal2">Deal</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- popup -->
-            <!-- 蓋黑底 -->
-            <div class="overlay"></div>
-            <!-- 蓋黑底 -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="content swiper-slide">
-                        <div class="title-name">Map 1 Winner</div>
-                        <div class="chips-bar">
-                            <ul class="chips">
-                                <li>
-                                    <img src="images/icon_03.png" alt="">
-                                </li>
-                                <li class="demo">
-                                    <img src="images/icon_01.png" alt="">
-                                </li>
-                            </ul>
-                            <ul class="chips">
-                                <li>
-                                    <img src="images/icon_05.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_11.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_09.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_01.png" alt="">
-                                </li>
-                                <li class="demo2">
-                                    <img src="images/icon_03.png" alt="">
-                                </li>
+                <!-- popup -->
+                <!-- 蓋黑底 -->
+                <div class="overlay"></div>
+                <!-- 蓋黑底 -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="content swiper-slide">
+                            <div class="title-name">Map 1 Winner</div>
+                            <div class="chips-bar">
+                                <ul class="chips">
+                                    <li>
+                                        <img src="images/icon_03.png" alt="">
+                                    </li>
+                                    <li class="demo">
+                                        <img src="images/icon_01.png" alt="">
+                                    </li>
+                                </ul>
+                                <ul class="chips">
+                                    <li>
+                                        <img src="images/icon_05.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/icon_11.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/icon_09.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/icon_01.png" alt="">
+                                    </li>
+                                    <li class="demo2">
+                                        <img src="images/icon_03.png" alt="">
+                                    </li>
 
-                            </ul>
-                        </div>
-                        <div class="team">
-                            <!-- 壓在按鈕上圖示 -->
-
-
-                            <!-- 壓在按鈕上圖示 -->
-                            <div class="button teamA-btn">
-                                Winstrike Team
-                                <div class="chips-float">
-                                    <img src="images/icon_01.png" alt="">
-                                </div>
+                                </ul>
                             </div>
+                            <div class="team">
+                                <!-- 壓在按鈕上圖示 -->
 
-                            <div class="bar-block">
-                                <div class="bar">
-                                    <div class="barA"></div>
-                                    <div class="barB"></div>
-                                </div>
-                                <div class="word">
-                                    <div class="teamA-word">Bet 1 to win 1.2</div>
-                                    <div class="teamB-word">Bet 1 to win 3</div>
-                                </div>
-                            </div>
-                            <div class="button teamB-btn">
-                                CyberTRAKTOR
-                                <div class="chips-float2">
-                                    <img src="images/icon_03.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="toolbar">
-                            <ul class="tool-block">
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>10</span>
+
+                                <!-- 壓在按鈕上圖示 -->
+                                <div class="button teamA-btn">
+                                    Winstrike Team
+                                    <div class="chips-float">
                                         <img src="images/icon_01.png" alt="">
                                     </div>
-                                    <div class="amount">x12</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>50</span>
+                                </div>
+
+                                <div class="bar-block">
+                                    <div class="bar">
+                                        <div class="barA"></div>
+                                        <div class="barB"></div>
+                                    </div>
+                                    <div class="word">
+                                        <div class="teamA-word">Bet 1 to win 1.2</div>
+                                        <div class="teamB-word">Bet 1 to win 3</div>
+                                    </div>
+                                </div>
+                                <div class="button teamB-btn">
+                                    CyberTRAKTOR
+                                    <div class="chips-float2">
                                         <img src="images/icon_03.png" alt="">
                                     </div>
-                                    <div class="amount">x50</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>200</span>
+                                </div>
+                            </div>
+                            <div class="toolbar">
+                                <ul class="tool-block">
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>10</span>
+                                            <img src="images/icon_01.png" alt="">
+                                        </div>
+                                        <div class="amount">x12</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>50</span>
+                                            <img src="images/icon_03.png" alt="">
+                                        </div>
+                                        <div class="amount">x50</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>200</span>
+                                            <img src="images/icon_05.png" alt="">
+                                        </div>
+                                        <div class="amount">x0</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>500</span>
+                                            <img src="images/icon_07.png" alt="">
+                                        </div>
+                                        <div class="amount">x120</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>1000</span>
+                                            <img src="images/icon_09.png" alt="">
+                                        </div>
+                                        <div class="amount">x88</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>5000</span>
+                                            <img src="images/icon_11.png" alt="">
+                                        </div>
+                                        <div class="amount">x0</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content swiper-slide">
+                            <div class="title-name">Map 1 1st to 5 Kills</div>
+                            <div class="chips-bar">
+                                <ul class="chips">
+                                    <li>
+                                        <img src="images/icon_03.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/icon_01.png" alt="">
+                                    </li>
+                                </ul>
+                                <ul class="chips">
+                                    <li>
                                         <img src="images/icon_05.png" alt="">
-                                    </div>
-                                    <div class="amount">x0</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>500</span>
-                                        <img src="images/icon_07.png" alt="">
-                                    </div>
-                                    <div class="amount">x120</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>1000</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icon_03.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/icon_01.png" alt="">
+                                    </li>
+                                    <li>
                                         <img src="images/icon_09.png" alt="">
-                                    </div>
-                                    <div class="amount">x88</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>5000</span>
+                                    </li>
+                                    <li>
                                         <img src="images/icon_11.png" alt="">
-                                    </div>
-                                    <div class="amount">x0</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="content swiper-slide">
-                        <div class="title-name">Map 1 1st to 5 Kills</div>
-                        <div class="chips-bar">
-                            <ul class="chips">
-                                <li>
-                                    <img src="images/icon_03.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_01.png" alt="">
-                                </li>
-                            </ul>
-                            <ul class="chips">
-                                <li>
-                                    <img src="images/icon_05.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_03.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_01.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_09.png" alt="">
-                                </li>
-                                <li>
-                                    <img src="images/icon_11.png" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="team">
-                            <!-- 壓在按鈕上圖示 -->
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <!-- 壓在按鈕上圖示 -->
 
 
-                            <!-- 壓在按鈕上圖示 -->
-                            <div class="button teamA-btn">
-                                <div class="chips-float">
-                                    <img src="images/icon_01.png" alt="">
-                                </div>
-                                Winstrike Team
-                            </div>
-                            <div class="bar-block">
-                                <div class="bar">
-                                    <div class="barA"></div>
-                                    <div class="barB"></div>
-                                </div>
-                                <div class="word">
-                                    <div class="teamA-word">Bet 1 to win 1.2</div>
-                                    <div class="teamB-word">Bet 1 to win 3</div>
-                                </div>
-                            </div>
-                            <div class="button teamB-btn">
-                                <div class="chips-float2">
-                                    <img src="images/icon_03.png" alt="">
-                                </div>
-                                CyberTRAKTOR
-                            </div>
-                        </div>
-                        <div class="toolbar">
-                            <ul class="tool-block">
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>10</span>
+                                <!-- 壓在按鈕上圖示 -->
+                                <div class="button teamA-btn">
+                                    <div class="chips-float">
                                         <img src="images/icon_01.png" alt="">
                                     </div>
-                                    <div class="amount">x12</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>50</span>
+                                    Winstrike Team
+                                </div>
+                                <div class="bar-block">
+                                    <div class="bar">
+                                        <div class="barA"></div>
+                                        <div class="barB"></div>
+                                    </div>
+                                    <div class="word">
+                                        <div class="teamA-word">Bet 1 to win 1.2</div>
+                                        <div class="teamB-word">Bet 1 to win 3</div>
+                                    </div>
+                                </div>
+                                <div class="button teamB-btn">
+                                    <div class="chips-float2">
                                         <img src="images/icon_03.png" alt="">
                                     </div>
-                                    <div class="amount">x50</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>200</span>
-                                        <img src="images/icon_05.png" alt="">
-                                    </div>
-                                    <div class="amount">x0</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>500</span>
-                                        <img src="images/icon_07.png" alt="">
-                                    </div>
-                                    <div class="amount">x120</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>1000</span>
-                                        <img src="images/icon_09.png" alt="">
-                                    </div>
-                                    <div class="amount">x88</div>
-                                </li>
-                                <li class="props">
-                                    <div class="tool">
-                                        <span>5000</span>
-                                        <img src="images/icon_11.png" alt="">
-                                    </div>
-                                    <div class="amount">x0</div>
-                                </li>
-                            </ul>
+                                    CyberTRAKTOR
+                                </div>
+                            </div>
+                            <div class="toolbar">
+                                <ul class="tool-block">
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>10</span>
+                                            <img src="images/icon_01.png" alt="">
+                                        </div>
+                                        <div class="amount">x12</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>50</span>
+                                            <img src="images/icon_03.png" alt="">
+                                        </div>
+                                        <div class="amount">x50</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>200</span>
+                                            <img src="images/icon_05.png" alt="">
+                                        </div>
+                                        <div class="amount">x0</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>500</span>
+                                            <img src="images/icon_07.png" alt="">
+                                        </div>
+                                        <div class="amount">x120</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>1000</span>
+                                            <img src="images/icon_09.png" alt="">
+                                        </div>
+                                        <div class="amount">x88</div>
+                                    </li>
+                                    <li class="props">
+                                        <div class="tool">
+                                            <span>5000</span>
+                                            <img src="images/icon_11.png" alt="">
+                                        </div>
+                                        <div class="amount">x0</div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </div>
