@@ -33,3 +33,24 @@ body {
         transform: scale(.95);
     }
 }
+
+
+.screen {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+} 
+
+.control .title.close {
+    transform: translate(0px, -24px);
+}
+
+.control .title.close .icon {
+    opacity: .84;
+    img {
+        opacity: 1;
+    }
+}
