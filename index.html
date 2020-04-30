@@ -336,11 +336,19 @@
 
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    $(function() {
+        var bannerSwiper = new Swiper('.swiper-container', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            observer: true,
+            observeParents: true,
+            updateTranslate: true,
+        });
+        bannerSwiper.updateSize();
+        bannerSwiper.updateSlides();
     });
 </script>
 

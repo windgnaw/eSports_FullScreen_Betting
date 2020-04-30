@@ -1,1 +1,89 @@
-body{background-color:black;user-select:none}#groupIframe{position:absolute;top:0;left:0;width:100%;padding-bottom:56.25%;box-sizing:border-box}#btnFullscreen{display:inline-flex;align-items:center;justify-content:center;position:fixed;top:.75rem;left:.75rem;z-index:99;padding:.375rem .75rem;font-size:.875rem;color:rgba(255,255,255,0.54);background-color:rgba(0,0,0,0.12);border:1px solid;border-radius:.375rem;transition:ease .2s;outline:none;-webkit-appearance:none}#btnFullscreen:active{background-color:rgba(255,255,255,0.24);transform:scale(0.95)}.screen{width:100%;height:auto;position:fixed;bottom:0;left:0;z-index:99}.control .title.close{transform:translate(0px, -24px)}.control .title.close .icon{opacity:.84}.control .title.close .icon img{opacity:1}
+body {
+  background-color: black;
+  user-select: none;
+}
+
+#groupIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  box-sizing: border-box;
+}
+
+#btnFullscreen {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 99;
+  padding: .375rem .75rem;
+  font-size: .875rem;
+  color: rgba(255, 255, 255, 0.54);
+  background-color: rgba(0, 0, 0, 0.12);
+  border: 1px solid;
+  border-radius: .375rem;
+  transition: ease .2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+#btnFullscreen:active {
+  background-color: rgba(255, 255, 255, 0.24);
+  transform: scale(0.95);
+}
+
+.screen {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  overflow: visible;
+}
+
+.control {
+  position: static;
+  bottom: auto;
+}
+
+.control .content .bar-block .word {
+  font-size: 16px;
+}
+
+.control .toolbar .tool-block {
+  justify-content: center;
+}
+
+.control .toolbar .tool-block li {
+  margin: 0 .25rem;
+}
+
+.control .title.close {
+  transform: translate(0px, -36px);
+}
+
+.control .title.close .icon {
+  opacity: .84;
+}
+
+.control .title.close .icon img {
+  opacity: 1;
+}
+
+.control .toolbar .tool-block li .amount {
+  font-size: 12px;
+}
+
+.control .toolbar .tool-block li .tool {
+  height: 2.75rem;
+}
+
+.control .toolbar .tool-block li img {
+  width: 70%;
+}

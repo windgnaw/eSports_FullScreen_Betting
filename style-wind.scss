@@ -7,6 +7,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    height: 0;
     padding-bottom: 56.25%;
     box-sizing: border-box;
 }
@@ -42,10 +43,23 @@ body {
     bottom: 0;
     left: 0;
     z-index: 99;
+    overflow: visible;
 } 
-
+.control {
+    position: static;
+    bottom: auto;
+}
+.control .content .bar-block .word {
+    font-size: 16px;
+}
+.control .toolbar .tool-block {
+    justify-content: center;
+}
+.control .toolbar .tool-block li {
+    margin: 0 .25rem;
+}
 .control .title.close {
-    transform: translate(0px, -24px);
+    transform: translate(0px, -36px);
 }
 
 .control .title.close .icon {
@@ -53,4 +67,15 @@ body {
     img {
         opacity: 1;
     }
+}
+.control .toolbar .tool-block li .amount {
+    font-size: 12px;
+}
+
+.control .toolbar .tool-block li .tool {
+    height: 2.75rem;
+}
+
+.control .toolbar .tool-block li img {
+    width: 70%;
 }
